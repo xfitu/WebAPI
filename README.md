@@ -24,7 +24,7 @@ There are total five custom Java classes in this package and each class has diff
 1.AddUser
 
 	- Description: register user to active directory
-	- access URL: https://localhost:7443/ActiveDirectoryWebAPI/AddUser
+	- access URL: https://localhost:7443/WebAPI/AddUser
 	- Required parameter variables: fname,lname,username,email,role, password
 	- Send request method: GET or POST
 	
@@ -36,7 +36,7 @@ There are total five custom Java classes in this package and each class has diff
 	   	
 2.SendEmail
 	- Description: send email to given email address 
-	- access URL: https://localhost:7443/ActiveDirectoryWebAPI/SendEmail
+	- access URL: https://localhost:7443/WebAPI/SendEmail
 	- Required parameter variables: fname,lname,receiveremail,subject,body,verificationlink
 	- Send request method: GET or POST
 	
@@ -48,7 +48,7 @@ There are total five custom Java classes in this package and each class has diff
 
 3.ActivateAccount
 	- Description: activate or enable user's account in active directory 
-	- access URL: https://localhost:7443/ActiveDirectoryWebAPI/ActivateAccount
+	- access URL: https://localhost:7443/WebAPI/ActivateAccount
 	- Required parameter variables: fname,lname
 	- Send request method: GET or POST
 	
@@ -64,7 +64,7 @@ There are total five custom Java classes in this package and each class has diff
 4.AddAttribute
 	- Description: add a new user's attribute to active directory 
 			See LDAP Name for each user's attibute in Active Directory here: https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html		
-	- access URL: https://localhost:7443/ActiveDirectoryWebAPI/AddAttribute
+	- access URL: https://localhost:7443/WebAPI/AddAttribute
 	- Required parameter variables: name,newattributename,newattributevalue
 								
 	- Send request method: GET or POST
@@ -79,7 +79,7 @@ There are total five custom Java classes in this package and each class has diff
 5.GetAnUserAttributes
 	- Description: retrieve all the user's attributes which have values set in active directory 
 			See LDAP Name for each user's attibute in Active Directory here: https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html		
-	- access URL: https://localhost:7443/ActiveDirectoryWebAPI/GetAnUserAttributes
+	- access URL: https://localhost:7443/WebAPI/GetAnUserAttributes
 	- Required parameter variables: name or username
 								
 	- Send request method: GET or POST
@@ -102,7 +102,7 @@ There are total five custom Java classes in this package and each class has diff
 6.GetAttribute
 	- Description: retrieve an user's attribute which has value in active directory 
 			See LDAP Name for each user's attibute in Active Directory here: https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html		
-	- access URL: https://localhost:7443/ActiveDirectoryWebAPI/GetAttribute
+	- access URL: https://localhost:7443/WebAPI/GetAttribute
 	- Required parameter variables: username,attributename
 								
 	- Send request method: GET or POST
@@ -117,7 +117,7 @@ There are total five custom Java classes in this package and each class has diff
 7.UpdateAttribute
 	- Description: update value of an user's attribute which has value in active directory 
 			See LDAP Name for each user's attibute in Active Directory here: https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html		
-	- access URL: https://localhost:7443/ActiveDirectoryWebAPI/UpdateAttribute
+	- access URL: https://localhost:7443/WebAPI/UpdateAttribute
 	- Required parameter variables: name,attributename,attributevalue
 								
 	- Send request method: GET or POST
@@ -131,7 +131,7 @@ There are total five custom Java classes in this package and each class has diff
 8.UpdatePassword
 	- Description: update user's password in active directory 
 			See LDAP Name for each user's attibute in Active Directory here: https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html		
-	- access URL: https://localhost:7443/ActiveDirectoryWebAPI/UpdatePassword
+	- access URL: https://localhost:7443/WebAPI/UpdatePassword
 	- Required parameter variables: name,username,password
 								
 	- Send request method: GET or POST
@@ -146,7 +146,7 @@ There are total five custom Java classes in this package and each class has diff
 9.UpdateName
 	- Description: update user's name in active directory 
 			See LDAP Name for each user's attibute in Active Directory here: https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html		
-	- access URL: https://localhost:7443/ActiveDirectoryWebAPI/UpdateName
+	- access URL: https://localhost:7443/WebAPI/UpdateName
 	- Required parameter variables: name,newfname,newlname
 								
 	- Send request method: GET or POST
@@ -161,7 +161,7 @@ There are total five custom Java classes in this package and each class has diff
 10.UpdateUsername
 	- Description: update user's username in active directory 
 			See LDAP Name for each user's attibute in Active Directory here: https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html		
-	- access URL: https://localhost:7443/ActiveDirectoryWebAPI/UpdateUsername
+	- access URL: https://localhost:7443/WebAPI/UpdateUsername
 	- Required parameter variables: name,newusername
 								
 	- Send request method: GET or POST
@@ -175,7 +175,7 @@ There are total five custom Java classes in this package and each class has diff
 11.RemoveUserFromGroup
 	- Description: remove user from a certain group in active directory 
 			See LDAP Name for each user's attibute in Active Directory here: https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html		
-	- access URL: https://localhost:7443/ActiveDirectoryWebAPI/RemoveUserFromGroup
+	- access URL: https://localhost:7443/WebAPI/RemoveUserFromGroup
 	- Required parameter variables: name,groupname
 								
 	- Send request method: GET or POST
@@ -189,7 +189,7 @@ There are total five custom Java classes in this package and each class has diff
 12.AddUserToGroup
 	- Description: Add  a user to a certain group in active directory 
 			See LDAP Name for each user's attibute in Active Directory here: https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html		
-	- access URL: https://localhost:7443/ActiveDirectoryWebAPI/AddUserToGroup
+	- access URL: https://localhost:7443/WebAPI/AddUserToGroup
 	- Required parameter variables:name,groupname
 								
 	- Send request method: GET or POST
@@ -203,7 +203,7 @@ There are total five custom Java classes in this package and each class has diff
 13.DeleteAttribute
 	- Description: Delete an user's attribute which has value in the active directory 
 			See LDAP Name for each user's attibute in Active Directory here: https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html		
-	- access URL: https://localhost:7443/ActiveDirectoryWebAPI/DeleteAttribute
+	- access URL: https://localhost:7443/WebAPI/DeleteAttribute
 	- Required parameter variables:name,attributename,attributevalue
 								
 	- Send request method: GET or POST
@@ -217,7 +217,7 @@ There are total five custom Java classes in this package and each class has diff
 14.DeleteUser
 	- Description: Delete an user or account from active directory 
 			See LDAP Name for each user's attibute in Active Directory here: https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html		
-	- access URL: https://localhost:7443/ActiveDirectoryWebAPI/DeleteUser
+	- access URL: https://localhost:7443/WebAPI/DeleteUser
 	- Required parameter variables:name
 								
 	- Send request method: GET or POST
@@ -230,7 +230,7 @@ There are total five custom Java classes in this package and each class has diff
 
  15.ForgetPassword
 	- Description:Check user's name and username in active directory when user forgets password
-	- access URL: https://localhost:7443/ActiveDirectoryWebAPI/ForgetPassword
+	- access URL: https://localhost:7443/WebAPI/ForgetPassword
 	- Required parameter variables: name,username,email
 	- Send request method: GET or POST
 	
