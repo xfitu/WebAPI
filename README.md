@@ -80,10 +80,10 @@ There are total five custom Java classes in this package and each class has diff
 	- Description: retrieve all the user's attributes which have values set in active directory 
 			See LDAP Name for each user's attibute in Active Directory here: https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html		
 	- access URL: https://localhost:7443/ActiveDirectoryWebAPI/GetAnUserAttributes
-	- Required parameter variables: name
+	- Required parameter variables: name or username
 								
 	- Send request method: GET or POST
-						EX: name=test user
+						EX: name=test user or username=accountname
 	
 	- Reponse is returned as JSON object:
 	
