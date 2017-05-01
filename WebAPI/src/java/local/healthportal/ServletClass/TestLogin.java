@@ -16,6 +16,7 @@ import static local.healthportal.ConfigClass.DomainController_Certificate_Config
 import local.healthportal.javaclass.ResponseObject;
 
 
+
 /**
  * This Servlet class is used to test connection or login to Active Directory
  * @author Julio Vaz
@@ -140,11 +141,10 @@ if(Status.equalsIgnoreCase("fail")){
    ro.setErrorMessage(ErrorMessage);  
 }else{   
    ro.setStatus(Status);
-   ro.setErrorMessage(ErrorMessage);
+   ro.setSuccessMessage(SuccessMessage);
 } 
       
 return ro;
 }//ends method here.......
-
 
 }//ends class here...........................................

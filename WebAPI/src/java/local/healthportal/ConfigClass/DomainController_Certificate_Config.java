@@ -13,7 +13,8 @@ package local.healthportal.ConfigClass;
  * @author Julio Vaz
  */
 public class DomainController_Certificate_Config {
- public final static String DOMAIN_CONTROLLER_CERTIFICATE_PATH = "C:\\healthportal.JKS";// Get the file of domain controller certificate          
-     
+ 
+    public final static String DOMAIN_CONTROLLER_CERTIFICATE_PATH = "C:\\AD-certificate\\dcad-portal-local.JKS";//1.AD-portal server certificate on virtual box domain controller-->WORK FINE
+    
 }
 

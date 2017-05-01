@@ -25,16 +25,16 @@ import javax.naming.directory.SearchResult;
 
     public class ActiveDirectory {
     
-    private String DOMAIN_NAME = "AD-portal.local"; //domain name
-    private String DOMAIN_ROOT = "DC=AD-portal,DC=local";//split domain fully qualified name ex: healthportal.local
-    private String DOMAIN_URL = "ldap://192.168.14.2:389"; //Domain Controller server IP Address with port number 389 for AD connection
-    private String DOMAIN_SSL_URL = "ldaps://192.168.14.2:636"; //server URL for ssl connection
+    private String DOMAIN_NAME = ""; //domain name
+    private String DOMAIN_ROOT = "";//split domain fully qualified name ex: healthportal.local
+    private String DOMAIN_URL = ""; //Domain Controller server IP Address with port number 389 for AD connection
+    private String DOMAIN_SSL_URL = ""; //server URL for ssl connection
     private String DOMAIN_CONTROLLER_KEYSTORE_PATH ="";
     
     private String ADMIN_NAME = "";// Active Directory Administrator username 
     private String ADMIN_PASS = ""; //Active Directory Administrator password
     private String DOMAIN_ADMIN_LOGINNAME ="";
-    private String OrganizationalUnit="portal";
+    private String OrganizationalUnit="";
    
     private  DirContext dirContext=null; //DirContext for AD connection
     private SearchControls searchcontrol=null;//searchControls for searching thru AD
@@ -542,7 +542,7 @@ try{
 }//method ends here......
  
     /**
-     * Method to get all user's attributes which have values from Active Directory
+     * Method to get all user's attributes which have values from Active Directory by user's full name
      * @param Name
      * @param OrganizationalUnitName
      * @return HashMap of attributes and values as key pairs
@@ -566,10 +566,10 @@ try{
     for (NamingEnumeration<?> e = attr.getAll(); e.hasMore();) {
            if(attributeName.equalsIgnoreCase("memberOf")){ 
                  value = value+e.next().toString()+",";    
-                 System.out.println(attributeName + ":" +value);
+                 //System.out.println(attributeName + ":" +value);
            }else{ 
                 value = value+e.next().toString();
-                System.out.println(attributeName + "=" +value);
+                //System.out.println(attributeName + "=" +value);
            }
            
         
@@ -785,6 +785,62 @@ try{
 }
  
 return value;
+
+}//ends method here..........................
+
+    /**
+     * Method to retrieve user's attributes from Active Directory by user's account name or username
+     * @param username
+     * @param OU
+     * @return HashMap attributes names and values
+     */
+ public HashMap<String,String> FetchAttributes(String username,String OU){
+   HashMap<String,String> result = new HashMap(); 
+   String value; 
+   String searchBase; 
+    if(OU.equalsIgnoreCase("null")){
+      searchBase = "CN=users,"+this.DOMAIN_ROOT;   
+    }
+    else{ //Otherwise the search will be done on the given OU container
+      searchBase = "OU="+OU+","+this.DOMAIN_ROOT;  
+    }          
+    this.searchcontrol = new SearchControls();
+    //array of attributes name to be fetched from active directory
+    String[]attributesID = {"objectCategory","mail","memberOf","instanceType","st","objectClass","company","name","description","sn",
+        "telephoneNumber","userAccountControl","primaryGroupID","postalcode","physicalDeliveryOfficeName",
+        "co","cn","title","mobile","sAMAccountType","givenName","displayName","userPrincipalName","department","streetAddress", 
+        "countryCode","l","distinguishedName","c","sAMAccountName","postOfficeBox"};
+
+    this.searchcontrol.setReturningAttributes(attributesID);
+    this.searchcontrol.setSearchScope(SearchControls.SUBTREE_SCOPE);
+    String searchFilter = "(&(objectClass=user)(sAMAccountName=" +username+ "))";
+
+   try{            
+    this.enumeration = this.dirContext.search(searchBase, searchFilter, this.searchcontrol);
+    SearchResult sr = (SearchResult)this.enumeration.next();
+    Attributes answer = sr.getAttributes();
+    for (NamingEnumeration<?> ae = answer.getAll(); ae.hasMore();) {
+    Attribute attr = (Attribute) ae.next();
+    String attributeName = attr.getID();
+    if(attributeName.equalsIgnoreCase("memberOf")){ 
+        value="";
+        //user is member of more than one groups in active directory
+        for (NamingEnumeration<?> e = attr.getAll(); e.hasMore();) {
+                 value = value+e.next().toString()+",";    
+        }
+    }else{ 
+        value = attr.get().toString();
+    }
+     //System.out.println(attributeName+":"+value);
+     result.put(attributeName, value);
+  }
+ 
+}catch (NamingException | NullPointerException e) {
+    e.printStackTrace();
+    return result;
+}
+ 
+return result;
 
 }//ends method here..........................
 

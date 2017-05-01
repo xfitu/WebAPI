@@ -15,8 +15,8 @@ public class UserAttributes {
     private String objectCategory; //CN=Person,CN=Schema,CN=Configuration,DC=healthportal,DC=local
     private String mail; //email or user email address
     private String email; //email or user email address
-    private String memberOf; //memberOf groups which are an user belongs to
-    private String group; //memberOf groups which are an user belongs to
+    private String memberOf; //memberOf groups which are a user belongs to
+    private String group; //memberOf groups which are a user belongs to
     private String instanceType;// 4
     private String st; // st or state or province
     private String state; // st or state or province
@@ -365,20 +365,17 @@ for (String key : map.keySet()) {
      * @return group name
      */
 private String MakeUserGroupName(String memberOf){
+    //memberOf ex: CN=Doctor,CN=Patient,DC=portal,DC=healthportal,DC=local;
     String resultgroup="";
     ArrayList<String> list=new ArrayList<>();    
     String[]temp; 
     String []groups ={};
-    String []mygroups=new String[2];
-    //String group = "CN=Doctor,CN=Patient,DC=portal,DC=healthportal,DC=local";
+    
     String delimiter = ",";
     temp = memberOf.split(delimiter);
     for(int i =0; i < temp.length ; i++) {
-       // System.out.println(temp[i]);
         if(temp[i].contains("CN")){
-           
             groups = temp[i].split("=");
-            //System.out.println("Group:"+groups[1]);
              list.add(groups[1]);
         } 
     }
