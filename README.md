@@ -558,11 +558,11 @@ HOW TO CONFIGURE AND RUN THIS WEB API
 
 8. Change the contents of these three configuration Java classes
   
-  8.1. AD_Admin_Config.java, change the details of Microsoft Active Directory server (IP addresss,domain name,admin credentials 		and OU)
+ 	 8.1. AD_Admin_Config.java, change the details of Microsoft Active Directory server (IP addresss,domain name,admin credentials 		      and OU)
    
-   8.2. DomainController_Certificate_Config.java, Change the path to the Microsoft Active Directory server JKS type certificate for 	         SSL connection with Active Directory server (Create in step 6)
+   	 8.2. DomainController_Certificate_Config.java, Change the path to the Microsoft Active Directory server JKS type certificate 		      for SSL connection with Active Directory server (Create in step 6)
    
-   8.3. Email_Config.java, change the account and password to valid gmail account which will be used to send verification email 
+   	 8.3. Email_Config.java, change the account and password to valid gmail account which will be used to send verification email 
    
 9. Clean and Build the WEB API from NetBeans IDE
 
