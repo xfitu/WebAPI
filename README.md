@@ -33,6 +33,26 @@ There are total five custom Java classes in this package and each class has diff
 		- success: {"Status":"success","SuccessMessage":"your account is already created"} 
 		
 		- fail: {"Status":"fail","ErrorMessage":"invalid access,must provide all the required parameters in the request"}
+        -How to send AJAX request to this WEP API using JQUERY library
+	dataString = "fname=" + fname+"&lname="+lname+"&username="+username+"&email="+email+"&password="+password+"&role="+role;
+ 		$.ajax({
+       			 type: "POST",
+        		 url: "https://localhost:7443/WebAPI/AddUser",
+       			 data: dataString,
+       			 dataType: "json",
+        		 success: function(result) {  
+          			 //do something with the result json object
+			},
+        		error: function(jqXHR, textStatus){
+           			//do something when error occures
+        		},
+        		beforeSend: function(settings){
+           			settings.data += "&dummyData=whatever";
+        		},
+        		complete: function(){
+          			//do something after AJAX request has completed    
+        		}
+		}); /*ends ajax here....*/ 	
 	   	
 2.SendEmail
 	- Description: send email to given email address 
@@ -45,6 +65,27 @@ There are total five custom Java classes in this package and each class has diff
 		- success: {"Status":"success","SuccessMessage":"email has sent"} 
 		
 		- fail: {"Status":"fail","ErrorMessage":"invalid email address"}
+		
+         -How to send AJAX request to this WEP API using JQUERY library
+	dataString = "fname=" + 	fname+"&lname="+lname+"&receiveremail="+email+"&subject="+subject+"&body="+body+"&verificationlink="+link;
+ 		$.ajax({
+       			 type: "POST",
+        		 url: "https://localhost:7443/WebAPI/SendEmail",
+       			 data: dataString,
+       			 dataType: "json",
+        		 success: function(result) {  
+          			 //do something with the result json object
+			},
+        		error: function(jqXHR, textStatus){
+           			//do something when error occures
+        		},
+        		beforeSend: function(settings){
+           			settings.data += "&dummyData=whatever";
+        		},
+        		complete: function(){
+          			//do something after AJAX request has completed    
+        		}
+		}); /*ends ajax here....*/ 		
 
 3.ActivateAccount
 	- Description: activate or enable user's account in active directory 
@@ -59,7 +100,26 @@ There are total five custom Java classes in this package and each class has diff
 		- fail: {"Status":"fail","ErrorMessage":"oops,cannot activate your account"}
 		
 	
-	
+	-How to send AJAX request to this WEP API using JQUERY library
+	dataString = "fname=" + fname+"&lname="+lname;
+ 		$.ajax({
+       			 type: "POST",
+        		 url: "https://localhost:7443/WebAPI/ActivateAccount",
+       			 data: dataString,
+       			 dataType: "json",
+        		 success: function(result) {  
+          			 //do something with the result json object
+			},
+        		error: function(jqXHR, textStatus){
+           			//do something when error occures
+        		},
+        		beforeSend: function(settings){
+           			settings.data += "&dummyData=whatever";
+        		},
+        		complete: function(){
+          			//do something after AJAX request has completed    
+        		}
+		}); /*ends ajax here....*/ 
  
 4.AddAttribute
 	- Description: add a new user's attribute to active directory 
@@ -75,6 +135,26 @@ There are total five custom Java classes in this package and each class has diff
 		- success: {"Status":"success","SuccessMessage":your new displayName is already added"} 
 		
 		- fail: {"Status":"fail","ErrorMessage":"oops,your new displayName cannot be added"}
+	-How to send AJAX request to this WEP API using JQUERY library
+	dataString = "name=" + name+"&newattributename="+attributename+"&newattributevalue="+attributevalue;
+ 		$.ajax({
+       			 type: "POST",
+        		 url: "https://localhost:7443/WebAPI/AddAttribute",
+       			 data: dataString,
+       			 dataType: "json",
+        		 success: function(result) {  
+          			 //do something with the result json object
+			},
+        		error: function(jqXHR, textStatus){
+           			//do something when error occures
+        		},
+        		beforeSend: function(settings){
+           			settings.data += "&dummyData=whatever";
+        		},
+        		complete: function(){
+          			//do something after AJAX request has completed    
+        		}
+		}); /*ends ajax here....*/ 	
 		
 5.GetAnUserAttributes
 	- Description: retrieve all the user's attributes which have values set in active directory 
@@ -98,6 +178,26 @@ There are total five custom Java classes in this package and each class has diff
 					,"distinguishedName":"CN=test user,OU=portal,DC=AD-portal,DC=local","username":"test","PoBox":"3847"} 
 		
 		- fail: {"Status":"fail","ErrorMessage":"oops,name does not exist"}
+	-How to send AJAX request to this WEP API using JQUERY library
+	dataString = "name="+name; or dataString = "username"+username;
+ 		$.ajax({
+       			 type: "POST",
+        		 url: "https://localhost:7443/WebAPI/GetAnUserAttributes",
+       			 data: dataString,
+       			 dataType: "json",
+        		 success: function(result) {  
+          			 //do something with the result json object
+			},
+        		error: function(jqXHR, textStatus){
+           			//do something when error occures
+        		},
+        		beforeSend: function(settings){
+           			settings.data += "&dummyData=whatever";
+        		},
+        		complete: function(){
+          			//do something after AJAX request has completed    
+        		}
+		}); /*ends ajax here....*/ 	
 		
 6.GetAttribute
 	- Description: retrieve an user's attribute which has value in active directory 
@@ -111,7 +211,27 @@ There are total five custom Java classes in this package and each class has diff
 	- Reponse is returned as JSON object:
 	
 		- success: {"Status":"success","email":"test@gmail.com"}
-		- fail: {"Status":"fail","ErrorMessage":"user attribute has no value"}		
+		- fail: {"Status":"fail","ErrorMessage":"user attribute has no value"}	
+	-How to send AJAX request to this WEP API using JQUERY library
+	dataString = "name="+name+"&attributename="+attributename;
+ 		$.ajax({
+       			 type: "POST",
+        		 url: "https://localhost:7443/WebAPI/GetAttribute",
+       			 data: dataString,
+       			 dataType: "json",
+        		 success: function(result) {  
+          			 //do something with the result json object
+			},
+        		error: function(jqXHR, textStatus){
+           			//do something when error occures
+        		},
+        		beforeSend: function(settings){
+           			settings.data += "&dummyData=whatever";
+        		},
+        		complete: function(){
+          			//do something after AJAX request has completed    
+        		}
+		}); /*ends ajax here....*/ 	
 		
 
 7.UpdateAttribute
@@ -127,7 +247,26 @@ There are total five custom Java classes in this package and each class has diff
 	
 		- success: {"Status":"success","SuccessMessage":"your mail is already updated to test@email2.com"}
 		- fail: {"Status":"fail","ErrorMessage":"your mail cannot be updated to test@email2.com"}		
-		
+	-How to send AJAX request to this WEP API using JQUERY library
+	dataString = "name="+name+"&attributename="+attributename+"&attributevalue="+attributevalue;
+ 		$.ajax({
+       			 type: "POST",
+        		 url: "https://localhost:7443/WebAPI/UpdateAttribute",
+       			 data: dataString,
+       			 dataType: "json",
+        		 success: function(result) {  
+          			 //do something with the result json object
+			},
+        		error: function(jqXHR, textStatus){
+           			//do something when error occures
+        		},
+        		beforeSend: function(settings){
+           			settings.data += "&dummyData=whatever";
+        		},
+        		complete: function(){
+          			//do something after AJAX request has completed    
+        		}
+		}); /*ends ajax here....*/ 	
 8.UpdatePassword
 	- Description: update user's password in active directory 
 			See LDAP Name for each user's attibute in Active Directory here: https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html		
@@ -141,7 +280,26 @@ There are total five custom Java classes in this package and each class has diff
 	
 		- success: {"Status":"success","SuccessMessage":"your account password is already updated"}
 		- fail: {"Status":"fail","ErrorMessage":"oops,your account password cannot be updated "}		
-		
+	-How to send AJAX request to this WEP API using JQUERY library
+	dataString = "name="+name+"&username="+username+"&password="+password;
+ 		$.ajax({
+       			 type: "POST",
+        		 url: "https://localhost:7443/WebAPI/UpdatePassword",
+       			 data: dataString,
+       			 dataType: "json",
+        		 success: function(result) {  
+          			 //do something with the result json object
+			},
+        		error: function(jqXHR, textStatus){
+           			//do something when error occures
+        		},
+        		beforeSend: function(settings){
+           			settings.data += "&dummyData=whatever";
+        		},
+        		complete: function(){
+          			//do something after AJAX request has completed    
+        		}
+		}); /*ends ajax here....*/ 	
 
 9.UpdateName
 	- Description: update user's name in active directory 
@@ -156,7 +314,26 @@ There are total five custom Java classes in this package and each class has diff
 	
 		- success: {"Status":"success","SuccessMessage":"your name is already updated }
 		- fail: {"Status":"fail","ErrorMessage":"oops,your name cannot be updated "}		
-		
+	-How to send AJAX request to this WEP API using JQUERY library
+	dataString = "name="+name+"&newfname="+newfname+"&newlname="+newlname;
+ 		$.ajax({
+       			 type: "POST",
+        		 url: "https://localhost:7443/WebAPI/UpdateName",
+       			 data: dataString,
+       			 dataType: "json",
+        		 success: function(result) {  
+          			 //do something with the result json object
+			},
+        		error: function(jqXHR, textStatus){
+           			//do something when error occures
+        		},
+        		beforeSend: function(settings){
+           			settings.data += "&dummyData=whatever";
+        		},
+        		complete: function(){
+          			//do something after AJAX request has completed    
+        		}
+		}); /*ends ajax here....*/ 	
 		
 10.UpdateUsername
 	- Description: update user's username in active directory 
@@ -171,7 +348,26 @@ There are total five custom Java classes in this package and each class has diff
 	
 		- success: {"Status":"success","SuccessMessage":"your username is already updated"}
 		- fail: {"Status":"fail","ErrorMessage":"oops,your username cannot be updated "}		
-
+        -How to send AJAX request to this WEP API using JQUERY library
+	dataString = "name="+name+"&newusername="+newusername;
+ 		$.ajax({
+       			 type: "POST",
+        		 url: "https://localhost:7443/WebAPI/UpdateUsername",
+       			 data: dataString,
+       			 dataType: "json",
+        		 success: function(result) {  
+          			 //do something with the result json object
+			},
+        		error: function(jqXHR, textStatus){
+           			//do something when error occures
+        		},
+        		beforeSend: function(settings){
+           			settings.data += "&dummyData=whatever";
+        		},
+        		complete: function(){
+          			//do something after AJAX request has completed    
+        		}
+		}); /*ends ajax here....*/ 
 11.RemoveUserFromGroup
 	- Description: remove user from a certain group in active directory 
 			See LDAP Name for each user's attibute in Active Directory here: https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html		
@@ -185,7 +381,26 @@ There are total five custom Java classes in this package and each class has diff
 	
 		- success: {"Status":"success","SuccessMessage":"user is already removed from doctor group"}
 		- fail: {"Status":"fail","ErrorMessage":"oops,user cannot be removed from doctor group"}		
-
+        -How to send AJAX request to this WEP API using JQUERY library
+	dataString = "name="+name+"&groupname="+groupname;
+ 		$.ajax({
+       			 type: "POST",
+        		 url: "https://localhost:7443/WebAPI/RemoveUserFromGroup",
+       			 data: dataString,
+       			 dataType: "json",
+        		 success: function(result) {  
+          			 //do something with the result json object
+			},
+        		error: function(jqXHR, textStatus){
+           			//do something when error occures
+        		},
+        		beforeSend: function(settings){
+           			settings.data += "&dummyData=whatever";
+        		},
+        		complete: function(){
+          			//do something after AJAX request has completed    
+        		}
+		}); /*ends ajax here....*/ 
 12.AddUserToGroup
 	- Description: Add  a user to a certain group in active directory 
 			See LDAP Name for each user's attibute in Active Directory here: https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html		
@@ -199,7 +414,26 @@ There are total five custom Java classes in this package and each class has diff
 	
 		- success: {"Status":"success","SuccessMessage":"user is already member of the group"}
 		- fail: {"Status":"fail","ErrorMessage":"cannot set user as member of the group"}		
-		
+	-How to send AJAX request to this WEP API using JQUERY library
+	dataString = "name="+name+"&groupname="+groupname;
+ 		$.ajax({
+       			 type: "POST",
+        		 url: "https://localhost:7443/WebAPI/AddUserToGroup",
+       			 data: dataString,
+       			 dataType: "json",
+        		 success: function(result) {  
+          			 //do something with the result json object
+			},
+        		error: function(jqXHR, textStatus){
+           			//do something when error occures
+        		},
+        		beforeSend: function(settings){
+           			settings.data += "&dummyData=whatever";
+        		},
+        		complete: function(){
+          			//do something after AJAX request has completed    
+        		}
+		}); /*ends ajax here....*/ 	
 13.DeleteAttribute
 	- Description: Delete an user's attribute which has value in the active directory 
 			See LDAP Name for each user's attibute in Active Directory here: https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html		
@@ -213,7 +447,26 @@ There are total five custom Java classes in this package and each class has diff
 	
 		- success: {"Status":"success","SuccessMessage":"your mail with value:testemail@gmail.com is already removed"}
 		- fail: {"Status":"fail","ErrorMessage":"oops,cannot remove mail with value:testemail@gmail.com"}		
-
+        -How to send AJAX request to this WEP API using JQUERY library
+	dataString = "name="+name+"&attributename="+attributename+"&attributevalue="+attributevalue;
+ 		$.ajax({
+       			 type: "POST",
+        		 url: "https://localhost:7443/WebAPI/DeleteAttribute",
+       			 data: dataString,
+       			 dataType: "json",
+        		 success: function(result) {  
+          			 //do something with the result json object
+			},
+        		error: function(jqXHR, textStatus){
+           			//do something when error occures
+        		},
+        		beforeSend: function(settings){
+           			settings.data += "&dummyData=whatever";
+        		},
+        		complete: function(){
+          			//do something after AJAX request has completed    
+        		}
+		}); /*ends ajax here....*/ 
 14.DeleteUser
 	- Description: Delete an user or account from active directory 
 			See LDAP Name for each user's attibute in Active Directory here: https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html		
@@ -227,7 +480,26 @@ There are total five custom Java classes in this package and each class has diff
 	
 		- success: {"Status":"success","SuccessMessage":"user is already deleted"}
 		- fail: {"Status":"fail","ErrorMessage":"oops,user cannot be deleted"}		
-
+	-How to send AJAX request to this WEP API using JQUERY library
+	dataString = "name="+name;
+ 		$.ajax({
+       			 type: "POST",
+        		 url: "https://localhost:7443/WebAPI/DeleteUser",
+       			 data: dataString,
+       			 dataType: "json",
+        		 success: function(result) {  
+          			 //do something with the result json object
+			},
+        		error: function(jqXHR, textStatus){
+           			//do something when error occures
+        		},
+        		beforeSend: function(settings){
+           			settings.data += "&dummyData=whatever";
+        		},
+        		complete: function(){
+          			//do something after AJAX request has completed    
+        		}
+		}); /*ends ajax here....*/ 
  15.ForgetPassword
 	- Description:Check user's name and username in active directory when user forgets password
 	- access URL: https://localhost:7443/WebAPI/ForgetPassword
@@ -240,7 +512,28 @@ There are total five custom Java classes in this package and each class has diff
 		
 		- fail: {"Status":"fail","ErrorMessage":"invalid user"}
 				
-
+	-How to send AJAX request to this WEP API using JQUERY library
+	dataString = "name="+name+"&username="+username+"&email="+email;
+ 		$.ajax({
+       			 type: "POST",
+        		 url: "https://localhost:7443/WebAPI/ForgetPassword",
+       			 data: dataString,
+       			 dataType: "json",
+        		 success: function(result) {  
+          			 //do something with the result json object
+			},
+        		error: function(jqXHR, textStatus){
+           			//do something when error occures
+        		},
+        		beforeSend: function(settings){
+           			settings.data += "&dummyData=whatever";
+        		},
+        		complete: function(){
+          			//do something after AJAX request has completed    
+        		}
+		}); /*ends ajax here....*/ 
+		
+		
 HOW TO CONFIGURE AND RUN THIS WEB API
 ======================================
 1. Download and install JDK 1.8
