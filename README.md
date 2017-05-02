@@ -241,3 +241,23 @@ There are total five custom Java classes in this package and each class has diff
 		- fail: {"Status":"fail","ErrorMessage":"invalid user"}
 				
 
+HOW TO CONFIGURE AND RUN THIS WEB API
+======================================
+1. Download and install JDK 1.8
+2. Download and setup Apache Tomcat 9.0.0.M17
+	2.1. Bind Apache Tomcat to SSL
+	2.2. Create Tomcat users 
+3. Download and install NetBeans IDE 8.2
+4. Clone this WEB API project from the NETBeans IDE
+5. Export Microsoft Active Directory server public key certificate 
+   (Reference: https://qnatech.wordpress.com/2013/05/19/how-to-configure-ssl-on-active-directory/)
+6. Create JKS type certificate for the Microsoft Active Directory public key certificate using Keytool command in JDK 
+   (Reference: https://qnatech.wordpress.com/2013/05/19/how-to-configure-ssl-on-active-directory/)
+7. Open Package for configureation Java classes: local.healthportal.ConfigClass
+8. Change the contents of these three configuration Java classes
+	8.1. AD_Admin_Config.java, change the details of Microsoft Active Directory server (IP addresss,domain name,admin credentials 		     and OU)
+	8.2. DomainController_Certificate_Config.java, Change the path to the Microsoft Active Directory server JKS type certificate for 	      SSL connection with Active Directory server (Create in step 6)
+	8.3. Email_Config.java, change the account and password to valid gmail account which will be used to send verification email 
+9. Clean and Build the WEB API from NetBeans IDE
+10. Deploy the WEB API to Tomacat app manager
+11. WEB API is ready to be used 
