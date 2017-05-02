@@ -21,9 +21,7 @@ There are total five custom Java classes in this package and each class has diff
  There are total fifteen Servlet classes in this package and each Servlet class handles different request
  and returns JSON object as response. 
 		
-1.AddUser
-
-	- Description: register user to active directory
+1.AddUser- Description: register user to active directory
 	- access URL: https://localhost:7443/WebAPI/AddUser
 	- Required parameter variables: fname,lname,username,email,role, password
 	- Send request method: GET or POST
