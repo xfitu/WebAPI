@@ -1,5 +1,5 @@
 # WebAPI
-It is Java Web API that Create and Search User's object and its attributes to and from Microsoft Active Directory.There are total fifteen Servlet classes in this project each Servlet class handles different request and returns JSON object as response. The API is created using Java Servlet and deploy on Apache Tomcat Web Server.
+It is Java Web API that Create and Search User's object and its attributes to and from Microsoft Active Directory.There are total fifteen Servlet classes in this project each Servlet class handles different request and returns JSON object as response. The API is created using Java Servlet and deploy on Apache Tomcat Web Server. This Web API uses JNDI API library (http://www.oracle.com/technetwork/java/jndi/index.html) to make LDAPS connection with Microsoft Active Directory server in order to create user object,add, update,delete and search user's attributes in Microsoft Active Directory. 
 
  
  There are three packages in this Web API project:
